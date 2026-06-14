@@ -6,48 +6,48 @@
 <title>総合科目 選択クイズ</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Georgia,serif;background:#0f0f14;color:#e8e4d9;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:28px 16px 48px}
+body{font-family:Georgia,serif;background:#f5f3ee;color:#2a2a2a;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:28px 16px 48px}
 header{text-align:center;margin-bottom:22px}
-.eyebrow{font-size:10px;letter-spacing:4px;color:#c8a96e;margin-bottom:8px}
-h1{font-size:22px;font-weight:400;letter-spacing:2px;color:#f0ead8}
-.subtitle{font-size:11px;color:#555;margin-top:5px}
+.eyebrow{font-size:10px;letter-spacing:4px;color:#8b6914;margin-bottom:8px}
+h1{font-size:22px;font-weight:400;letter-spacing:2px;color:#1a1a1a}
+.subtitle{font-size:11px;color:#888;margin-top:5px}
 .cat-scroll{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:680px;margin-bottom:18px}
-.cat-btn{padding:5px 12px;border:1px solid #252530;background:transparent;color:#555;font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s}
-.cat-btn.active,.cat-btn:hover{border-color:#c8a96e;color:#c8a96e}
-.card{width:100%;max-width:680px;background:#16161f;border:1px solid #252530;padding:26px 22px 20px;position:relative;margin-bottom:12px}
+.cat-btn{padding:5px 12px;border:1px solid #ddd;background:transparent;color:#888;font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s}
+.cat-btn.active,.cat-btn:hover{border-color:#8b6914;color:#8b6914}
+.card{width:100%;max-width:680px;background:#ffffff;border:1px solid #ddd;padding:26px 22px 20px;position:relative;margin-bottom:12px}
 .prog-line{position:absolute;top:0;left:0;height:2px;background:#c8a96e;transition:width .3s}
 .q-meta{display:flex;justify-content:space-between;margin-bottom:14px}
-.q-tag{font-size:10px;letter-spacing:2px;color:#555}
-.q-num{font-size:11px;color:#444}
-.q-text{font-size:14px;line-height:1.75;color:#e8e4d9;margin-bottom:18px}
+.q-tag{font-size:10px;letter-spacing:2px;color:#888}
+.q-num{font-size:11px;color:#555}
+.q-text{font-size:14px;line-height:1.75;color:#2a2a2a;margin-bottom:18px}
 .options{display:flex;flex-direction:column;gap:8px}
-.opt{padding:10px 14px;border:1px solid #252530;background:transparent;color:#aaa;font-size:13px;text-align:left;cursor:pointer;font-family:inherit;line-height:1.5;display:flex;gap:10px;transition:all .15s}
-.opt:hover{border-color:#444;color:#ddd}
-.opt-label{min-width:18px;color:#555;font-size:12px;flex-shrink:0;margin-top:1px}
-.opt.correct{border-color:#5a9e7a!important;color:#7ec8a0!important;background:rgba(90,158,122,.1)!important}
-.opt.wrong{border-color:#9e5a5a!important;color:#c87e7e!important;background:rgba(158,90,90,.1)!important}
+.opt{padding:10px 14px;border:1px solid #ddd;background:transparent;color:#555;font-size:13px;text-align:left;cursor:pointer;font-family:inherit;line-height:1.5;display:flex;gap:10px;transition:all .15s}
+.opt:hover{border-color:#555;color:#333}
+.opt-label{min-width:18px;color:#888;font-size:12px;flex-shrink:0;margin-top:1px}
+.opt.correct{border-color:#2d8a4e!important;color:#2d8a4e!important;background:rgba(45,138,78,.08)!important}
+.opt.wrong{border-color:#c44!important;color:#c44!important;background:rgba(204,68,68,.08)!important}
 .opt.dim{opacity:.3}
-.feedback{margin-top:16px;padding:13px 15px;border:1px solid #252530;font-size:13px;line-height:1.75;display:none}
-.feedback.ok{display:block;border-color:#5a9e7a;color:#e8d8c0;background:rgba(90,158,122,.07)}
-.feedback.ng{display:block;border-color:#9e5a5a;color:#e8d8c0;background:rgba(158,90,90,.07)}
+.feedback{margin-top:16px;padding:13px 15px;border:1px solid #ddd;font-size:13px;line-height:1.75;display:none}
+.feedback.ok{display:block;border-color:#2d8a4e;color:#333;background:rgba(45,138,78,.06)}
+.feedback.ng{display:block;border-color:#c44;color:#333;background:rgba(204,68,68,.06)}
 .fb-head{font-size:11px;letter-spacing:2px;margin-bottom:6px;font-weight:bold}
-#nextBtn{width:100%;max-width:680px;padding:13px;border:1px solid #c8a96e;background:transparent;color:#c8a96e;font-size:14px;cursor:pointer;font-family:inherit;margin-bottom:10px;display:none;transition:background .15s}
-#nextBtn:hover{background:rgba(200,169,110,.1)}
+#nextBtn{width:100%;max-width:680px;padding:13px;border:1px solid #c8a96e;background:transparent;color:#8b6914;font-size:14px;cursor:pointer;font-family:inherit;margin-bottom:10px;display:none;transition:background .15s}
+#nextBtn:hover{background:rgba(139,105,20,.08)}
 .stats{display:flex;gap:24px;margin-top:4px}
-.stat{font-size:11px;color:#555;text-align:center}
-.stat span{color:#c8a96e;font-size:17px;display:block}
+.stat{font-size:11px;color:#888;text-align:center}
+.stat span{color:#8b6914;font-size:17px;display:block}
 #summary{width:100%;max-width:680px;text-align:center;display:none}
-.big-pct{font-size:72px;font-weight:300;color:#c8a96e;line-height:1}
-.pct-label{font-size:11px;letter-spacing:3px;color:#555;margin-top:4px;margin-bottom:24px}
+.big-pct{font-size:72px;font-weight:300;color:#8b6914;line-height:1}
+.pct-label{font-size:11px;letter-spacing:3px;color:#888;margin-top:4px;margin-bottom:24px}
 .sum-btns{display:flex;gap:10px;margin-bottom:16px}
-.sum-btn{flex:1;padding:12px;border:1px solid #333;background:transparent;color:#999;font-size:13px;cursor:pointer;font-family:inherit}
-.sum-btn.p{border-color:#c8a96e;color:#c8a96e}
-.missed-box{text-align:left;background:#16161f;border:1px solid #252530;padding:18px}
+.sum-btn{flex:1;padding:12px;border:1px solid #ccc;background:transparent;color:#777;font-size:13px;cursor:pointer;font-family:inherit}
+.sum-btn.p{border-color:#8b6914;color:#8b6914}
+.missed-box{text-align:left;background:#ffffff;border:1px solid #ddd;padding:18px}
 .missed-box h3{font-size:10px;letter-spacing:3px;color:#9e5a5a;margin-bottom:12px}
-.missed-item{padding:9px 0;border-bottom:1px solid #1f1f28;font-size:12px;color:#999;line-height:1.6}
+.missed-item{padding:9px 0;border-bottom:1px solid #eee;font-size:12px;color:#777;line-height:1.6}
 .missed-item:last-child{border-bottom:none}
-.missed-q{color:#e0d8c8;margin-bottom:3px;font-size:13px}
-.missed-a{color:#7ec8a0}
+.missed-q{color:#222;margin-bottom:3px;font-size:13px}
+.missed-a{color:#2d8a4e}
 </style>
 </head>
 <body>
@@ -286,6 +286,73 @@ const ALL = [
 {cat:"地方自治・司法",q:"ブライスが「地方自治は民主主義の学校」と述べた意味として最も近いものはどれか？",opts:["地方の学校で民主主義を教えるべき","地方政治への参加を通じて市民が民主主義を学び実践する","地方自治体が大学を運営すべき","民主主義は地方から中央へと広がるべき"],ans:1,exp:"ブライスの「地方自治は民主主義の学校」＝地方政治への参加を通じて市民が民主主義を学び実践する→健全な民主主義の土台になるという考え方。"},
 {cat:"地方自治・司法",q:"裁判員制度（2009年開始）の対象となる裁判はどれか？",opts:["すべての刑事事件","重大な民事事件","重大な刑事事件の第一審のみ","行政訴訟"],ans:2,exp:"裁判員制度＝重大刑事事件（殺人・傷害致死等）の第一審のみが対象。民事事件・行政訴訟は対象外。裁判員は量刑にも参加（アメリカの陪審員との違い）。"},
 
+{cat:"地理・アメリカ大陸",q:"ニューヨークとワシントンD.C.の位置関係として正しいものはどれか？",opts:["ニューヨークがワシントンD.C.の南にある","ニューヨークがワシントンD.C.の北にある","ニューヨークとワシントンD.C.は西海岸にある","ニューヨークはアメリカ中部にある"],ans:1,exp:"東海岸に位置し、ニューヨークがワシントンD.C.の北にある。どちらもアメリカ東海岸。"},
+{cat:"地理・アメリカ大陸",q:"サンフランシスコとロサンゼルスの位置関係として正しいものはどれか？",opts:["ロサンゼルスがサンフランシスコの北","サンフランシスコがロサンゼルスの北","両方とも東海岸","サンフランシスコは内陸部にある"],ans:1,exp:"どちらも西海岸のカリフォルニア州。サンフランシスコが北、ロサンゼルスが南。"},
+{cat:"地理・アメリカ大陸",q:"シカゴが位置するアメリカの地域として正しいものはどれか？",opts:["西海岸","南部（テキサス周辺）","東部の中央寄り（五大湖周辺）","北東部のニューイングランド地方"],ans:2,exp:"シカゴは東部の中央寄り・五大湖周辺に位置する。近くにデトロイト（自動車産業）もある。"},
+{cat:"地理・アメリカ大陸",q:"ラスベガスが位置するアメリカの地域として正しいものはどれか？",opts:["東海岸のフロリダ州","西海岸のカリフォルニア州内","カリフォルニア州の東側（ネバダ州・砂漠地帯）","五大湖周辺"],ans:2,exp:"ラスベガスはネバダ州（カリフォルニア州の東側・砂漠地帯）に位置する。"},
+{cat:"地理・アメリカ大陸",q:"フロリダ州はアメリカのどこに位置するか？",opts:["西海岸の南端","東海岸の最南端にある突き出た半島","五大湖周辺","中部の内陸"],ans:1,exp:"フロリダ州はアメリカ東海岸の最南端に突き出た半島。亜熱帯気候で亜熱帯作物（オレンジ等）が主要農産物。"},
+{cat:"地理・アメリカ大陸",q:"アメリカの東南部（温暖湿潤気候）の主要作物はどれか？",opts:["酪農・玉米・大豆","綿花","ブドウ・オリーブ","小麦"],ans:1,exp:"アメリカ東南部（温暖湿潤気候）の主要作物＝綿花。東北部（冷帯湿潤）は酪農・玉米・大豆。"},
+{cat:"地理・アメリカ大陸",q:"アメリカの西北角（ワシントン州・オレゴン州）の気候と主要産業はどれか？",opts:["地中海性気候・ブドウ栽培","冷帯湿潤気候・綿花栽培","西岸海洋性気候・酪農業","熱帯気候・砂糖きび栽培"],ans:2,exp:"アメリカ西北角（ワシントン州・オレゴン州）＝西岸海洋性気候・酪農業が主要産業。ワシントン州は航空産業（ボーイング）も世界第一位。"},
+{cat:"地理・アメリカ大陸",q:"アメリカの西南部カリフォルニアの気候として正しいものはどれか？",opts:["冷帯湿潤気候","熱帯雨林気候","地中海性気候","砂漠気候"],ans:2,exp:"カリフォルニア（サンフランシスコ・ロサンゼルス周辺）＝地中海性気候。地中海式農業（ブドウ・オリーブ・柑橘類等）が盛ん。"},
+{cat:"地理・アメリカ大陸",q:"アメリカ西部の高山地帯の主要産業はどれか？",opts:["稲作","綿花栽培","畜牧業（周辺で小麦も栽培）","精密機械工業"],ans:2,exp:"アメリカ西部（ロッキー山脈周辺）の高山地帯＝畜牧業が主体。畜牧業の周囲で小麦も栽培される。"},
+{cat:"地理・アメリカ大陸",q:"アメリカの現在のエネルギー事情として正しいものはどれか？",opts:["石油は全量輸入に依存","シェールオイル革命により現在世界最大の産油国","原子力発電が主力で石油はほとんど使わない","再生可能エネルギーだけで全エネルギーを賄っている"],ans:1,exp:"アメリカはシェールオイル革命により現在世界最大の産油国。石油・天然ガスが主力エネルギー。"},
+{cat:"地理・アメリカ大陸",q:"南米と北米を分ける境界として一般的に使われるものはどれか？",opts:["赤道","ミシシッピ川","パナマ運河","アマゾン川"],ans:2,exp:"パナマ運河が南米と北米の境界として一般的に使われる。パナマ運河の北が北米、南が南米。"},
+{cat:"地理・アメリカ大陸",q:"ブラジルは北半球と南半球のどちらにあるか？",opts:["北半球","南半球","赤道上で南北にまたがるがほとんどが南半球","完全に赤道上に位置する"],ans:2,exp:"ブラジルは赤道が北部を通過するが国土のほとんどは南半球に位置する。そのため6・7・8月が冬。"},
+{cat:"地理・アメリカ大陸",q:"ブラジルの玉米（トウモロコシ）産量は世界第何位か？",opts:["世界第一位","世界第二位","世界第三位","世界第五位"],ans:2,exp:"ブラジルの玉米産量＝世界第三位。大豆は世界第一位、コーヒー豆・砂糖も世界トップクラス。"},
+{cat:"地理・アメリカ大陸",q:"ブラジルの自動車産業は南米で何位か？",opts:["南米第三位","南米第二位","南米第一位","自動車産業はない"],ans:2,exp:"ブラジルの自動車産業は南米第一位。鉱石は豊富だが輸出せず国内消費が中心。牛肉の輸出も世界有数。"},
+{cat:"地理・アメリカ大陸",q:"アルゼンチンの主要な輸出農産物として正しいものはどれか？",opts:["コーヒー・バナナ","小麦・玉米・牛肉","米・茶","オリーブ・ブドウ"],ans:1,exp:"アルゼンチン＝パンパ（温暖湿潤な大平原）で小麦・玉米を栽培、畜牧業が盛んで牛肉の輸出大国。"},
+{cat:"地理・欧州",q:"イギリスの地形的特徴として正しいものはどれか？",opts:["全国が平坦な低地","東南部が低地・西北部が高地","北部が低地・南部が高地","全国が山岳地帯"],ans:1,exp:"イギリスの地形＝東南部が低地（ロンドン盆地等）、西北部が高地（スコットランド高地等）。「東南低地・西北高地」と覚える。"},
+{cat:"地理・欧州",q:"ヨーロッパで最も人口が多い国はどこか？",opts:["フランス","イギリス","イタリア","ドイツ"],ans:3,exp:"ヨーロッパで最も人口が多い国＝ドイツ（約8400万人）。フランスは約6700万人、イギリスは約6700万人、イタリアは約6000万人。"},
+{cat:"地理・欧州",q:"ドイツの首都ベルリンは国内のどの方角にあるか？",opts:["西部","南部","東部","北部"],ans:2,exp:"ベルリンはドイツの東部に位置する。冷戦時代は東西に分断されていた。南部にはミュンヘンがある。"},
+{cat:"地理・欧州",q:"ドイツのミュンヘンは国内のどの方角にあるか？",opts:["北部","東部","西部","南部"],ans:3,exp:"ミュンヘンはドイツの南部に位置する（バイエルン州）。ベルリンは東部。ルール工業地帯は西部。"},
+{cat:"地理・欧州",q:"ヨーロッパ最大の工業地帯はどこか？",opts:["マンチェスター工業地帯（イギリス）","ルール工業地帯（ドイツ）","パリ工業地帯（フランス）","ミラノ工業地帯（イタリア）"],ans:1,exp:"ヨーロッパ最大の工業地帯＝ルール工業地帯（ドイツ西部）。石炭・鉄鋼・機械・化学工業が発達。ライン川の水運を活用。"},
+{cat:"地理・欧州",q:"フランスの面積はヨーロッパで何位か？",opts:["ヨーロッパ最大","ロシアに次いでヨーロッパ第二位","ヨーロッパ第三位","ヨーロッパ第五位"],ans:1,exp:"フランスの面積はロシアに次いでヨーロッパ第二位。西ヨーロッパに限れば最大。西ヨーロッパ最大の農業国でもある。"},
+{cat:"地理・欧州",q:"イタリアの北部と南部のうち経済的に発展しているのはどちらか？",opts:["南部（ナポリ・シチリア等）","北部（ミラノ・トリノ等）","南北に経済格差はない","中部のみが発展"],ans:1,exp:"イタリアは北部（ミラノ・トリノ等）が経済的に発展。南部は農業中心で経済発展が遅れている→南北経済格差が大きい。"},
+{cat:"地理・欧州",q:"イタリアのエネルギーで「ないもの」はどれか？",opts:["天然ガス","水力発電","石油輸入","原子力発電"],ans:3,exp:"イタリアには原子力発電がない（国民投票で否決）。エネルギー自給率は低く、石油・天然ガスを大量に輸入。天然ガスと水力発電の比率が相対的に高い。"},
+{cat:"地理・欧州",q:"スペインの海岸線の特徴として知られるものはどれか？",opts:["フィヨルド","リアス海岸","三角州","サンゴ礁"],ans:1,exp:"スペインの海岸線の特徴＝リアス海岸（ria・入り江が連なる地形）。特に北西部のガリシア地方が有名。フィヨルドはノルウェー。"},
+{cat:"地理・欧州",q:"ノルウェーの海岸線の特徴として知られるものはどれか？",opts:["リアス海岸","三角州","フィヨルド（氷河浸食による複雑な海岸線）","干潟"],ans:2,exp:"ノルウェーの海岸線の特徴＝フィヨルド（氷河浸食による複雑な深い入り江）。リアス海岸はスペイン。"},
+{cat:"地理・欧州",q:"ロシアの東西を分けるウラル山脈の西側にあるのはどれか？",opts:["西シベリア低地","中央シベリア高原","東ヨーロッパ平原","カムチャッカ半島"],ans:2,exp:"ウラル山脈の西側＝東ヨーロッパ平原（モスクワ等がある）。東側＝西シベリア低地と中央シベリア高原。「ウラル山脈を境に西は平原・東はシベリア」。"},
+{cat:"地理・欧州",q:"チェルノーゼムとは何か？",opts:["ロシア南部に広がる肥沃な黒色土壌（世界有数の小麦地帯）","シベリアの永久凍土","ウラル山脈の火山性土壌","カスピ海沿岸の砂漠性土壌"],ans:0,exp:"チェルノーゼム＝ロシア南部・ウクライナに広がる肥沃な黒色土壌。世界有数の小麦地帯を形成。「チェルノーゼム＝黒土＝小麦」と覚える。"},
+{cat:"地理・大洋州",q:"オーストラリアの地形で東部に南北に走る山脈の名称はどれか？",opts:["ロッキー山脈","アンデス山脈","大分水嶺（グレートディヴァイディング山脈）","アルプス山脈"],ans:2,exp:"オーストラリア東部を南北に走る山脈＝大分水嶺（グレートディヴァイディング山脈）。これを境に東側が温暖湿潤、西側が乾燥帯。"},
+{cat:"地理・大洋州",q:"オーストラリアでかつて実施されていた白人優先移民政策の名称はどれか？",opts:["アパルトヘイト","白豪主義（White Australia Policy）","ジム・クロウ法","植民地主義"],ans:1,exp:"白豪主義（White Australia Policy）＝オーストラリアでかつて実施されていた白人優先移民政策。1970年代に正式に廃止。アパルトヘイトは南アフリカ。"},
+{cat:"地理・大洋州",q:"ニュージーランドの気候として正しいものはどれか？",opts:["熱帯雨林気候","地中海性気候","西岸海洋性気候","砂漠気候"],ans:2,exp:"ニュージーランドの気候＝西岸海洋性気候（年間を通じて温暖で降水が安定）。畜牧業（酪農・ラム肉等）が主要産業。"},
+{cat:"地理・アフリカ・アジア",q:"アフリカの植民地分割でフランスが目指した政策はどれか？",opts:["縦断政策（南北）","横断政策（東西）","沿岸部のみの支配","島嶼部の支配"],ans:1,exp:"フランスのアフリカ政策＝横断政策（東西に横に植民地をつなぐ）。イギリスは縦断政策（南北・ケープタウンからカイロへ）。両者がスーダンで衝突（ファショダ事件1898年）。"},
+{cat:"地理・アフリカ・アジア",q:"エチオピアはアフリカのどの方角に位置するか？",opts:["西北部","東北部","南部","中央部"],ans:1,exp:"エチオピアはアフリカの東北部（「アフリカの角」付近）に位置する。植民地にならなかった独立国（リベリアは西北部の小国）。"},
+{cat:"地理・アフリカ・アジア",q:"リベリアはアフリカのどの方角に位置するか？",opts:["東北部","西北部","南部","中央部"],ans:1,exp:"リベリアはアフリカの西北部に位置する小国。アメリカの解放奴隷が建国。エチオピア（東北部）とともにアフリカで独立を維持した二か国。"},
+{cat:"地理・アフリカ・アジア",q:"シンガポールの主力エネルギーはどれか？",opts:["石炭","石油（国内産出）","天然ガス（マレーシア・インドネシアからパイプライン輸入）","原子力発電"],ans:2,exp:"シンガポール＝天然資源がほとんどなくエネルギーはほぼ100%輸入。主力は天然ガスでマレーシア・インドネシアからパイプラインで輸入。"},
+{cat:"地理・アフリカ・アジア",q:"フィリピンの主要輸出農産物はどれか？",opts:["コーヒー","天然ゴム","米","バナナ"],ans:3,exp:"フィリピンの主要輸出農産物＝バナナ。多島国で火山・地震が多い。旧宗主国はスペイン→アメリカ。宗教はキリスト教（カトリック）。"},
+{cat:"地理・アフリカ・アジア",q:"フィリピンの主な宗教はどれか？",opts:["仏教","イスラム教","キリスト教（カトリック）","ヒンドゥー教"],ans:2,exp:"フィリピン＝キリスト教（カトリック）が主体。スペインの植民地だった歴史的影響。東南アジアで唯一のキリスト教多数国。"},
+{cat:"地理・アフリカ・アジア",q:"インドネシアの人口は世界第何位か？",opts:["世界第二位","世界第三位","世界第四位","世界第五位"],ans:2,exp:"インドネシアの人口＝世界第四位（約2.7億人）。1位インド、2位中国、3位アメリカ、4位インドネシア。世界最大のイスラム教徒の国でもある。"},
+{cat:"地理・アフリカ・アジア",q:"ベトナムの主要輸出品として正しいものはどれか？",opts:["天然ゴム・パーム油","コーヒー・米","バナナ・砂糖","小麦・大豆"],ans:1,exp:"ベトナムの主要輸出品＝コーヒー・米。資源は石油。旧宗主国はフランス。仏教が中心の社会主義国。"},
+{cat:"地理・アフリカ・アジア",q:"文莱（ブルネイ）の宗教はどれか？",opts:["仏教","キリスト教","イスラム教","ヒンドゥー教"],ans:2,exp:"ブルネイ＝イスラム教。旧宗主国はイギリス。石油・天然ガスが豊富で経済的に豊か（一人当たりGDPがアジア有数）。"},
+{cat:"地理・アフリカ・アジア",q:"マレーシアの主要農産物として正しいものはどれか？",opts:["米・小麦","コーヒー・砂糖","天然ゴム・パーム油","バナナ・ココナッツ"],ans:2,exp:"マレーシアの主要農産物＝天然ゴム・パーム油。パーム油はインドネシアと並び世界最大級の産地。"},
+{cat:"地理・アフリカ・アジア",q:"インドの主要作物として正しいものはどれか？",opts:["コーヒー・バナナ・カカオ","棉花・米・小麦","大豆・トウモロコシ・サトウキビ","茶・ジャガイモ・大麦"],ans:1,exp:"インドの主要作物＝棉花・米・小麦。米・小麦はいずれも中国に次ぐ世界第二位の産量。"},
+{cat:"地理・アフリカ・アジア",q:"アフリカで赤道が通る中央部の気候帯はどれか？",opts:["砂漠気候","温帯海洋性気候","熱帯雨林気候","地中海性気候"],ans:2,exp:"アフリカで赤道が通る中央部（コンゴ盆地等）＝熱帯雨林気候。その周囲が熱帯草原（サバナ）気候。北部はサハラ砂漠（砂漠気候）。"},
+{cat:"地理・欧州",q:"ヨーロッパ最大の小麦生産国はどこか？",opts:["ドイツ","イギリス","イタリア","フランス"],ans:3,exp:"ヨーロッパ最大の小麦生産国＝フランス。フランスは西ヨーロッパ最大の農業国でもある。主要作物は小麦・大麦・甜菜・ブドウ。"},
+{cat:"地理・欧州",q:"オランダの主要な農業産物はどれか？",opts:["小麦・大麦","ブドウ・オリーブ","チーズ等の酪農製品","コーヒー・カカオ"],ans:2,exp:"オランダ＝チーズ等の酪農大国。低地国で干拓地（ポルダー）を活用した農業。花卉（チューリップ等）の栽培も世界的に有名。"},
+{cat:"地理・欧州",q:"スイスの農業で中心となっているのはどれか？",opts:["小麦・大麦の穀物栽培","酪農（チーズ等）","ブドウ・オリーブの地中海式農業","熱帯果物の栽培"],ans:1,exp:"スイスの農業＝酪農が中心（チーズ・バター等）。高原山地型気候のため穀物栽培には不向き。精密機械・時計・医薬品が主要産業。"},
+{cat:"日本経済史",q:"シャウプ勧告（1949年）の内容として正しいものはどれか？",opts:["超均衡予算による財政引き締め","直接税中心・累進課税への税制改革","財閥解体と農地改革","固定為替レート1ドル＝360円の設定"],ans:1,exp:"シャウプ勧告＝直接税中心・累進課税への税制改革（1949年）。超均衡予算と固定為替レートはドッジ・ライン。「シャウプ＝税制改革、ドッジ＝財政引き締め」と区別。"},
+{cat:"日本経済史",q:"GHQ三大改革のうち「農地改革」の内容として正しいものはどれか？",opts:["財閥を解体して競争的な市場を作った","労働組合法を制定して労働者の権利を保障した","地主制を廃止して自作農を創出した","教育制度を改革して義務教育を延長した"],ans:2,exp:"農地改革＝地主制を廃止して自作農を創出（小作人に農地を安く払い下げ）。財閥解体と労働民主化は三大改革の他の二つ。"},
+{cat:"日本経済史",q:"特需景気（1950年）でドッジ・デフレから脱出できた理由はどれか？",opts:["政府が積極的な財政出動を行った","日本銀行が金利を大幅に引き下げた","朝鮮戦争での米軍の物資調達（特需）により日本企業に大量の発注が入った","アメリカからの経済援助が大幅に増加した"],ans:2,exp:"特需景気＝朝鮮戦争（1950年）で米軍が日本に大量の物資を発注→ドッジ・デフレから脱出。「特需＝米軍の発注で儲かった」と覚える。"},
+{cat:"日本経済史",q:"いざなぎ景気（1965-70年）の象徴「3C」とは何か？",opts:["冷蔵庫・洗濯機・白黒テレビ","カラーテレビ・クーラー・カー（自動車）","コンピューター・携帯電話・カメラ","コーヒー・チョコレート・コーラ"],ans:1,exp:"いざなぎ景気の「3C」＝カラーテレビ（Color TV）・クーラー（Cooler）・カー（Car＝自動車）。神武景気の「三種の神器」（冷蔵庫・洗濯機・白黒テレビ）と区別。"},
+{cat:"日本経済史",q:"いざなぎ景気（1965-70年）の間に日本のGNPは世界第何位になったか？",opts:["世界第一位","世界第二位","世界第三位","世界第五位"],ans:1,exp:"いざなぎ景気（1965-70年）の間に日本のGNP（国民総生産）は世界第二位になった（アメリカに次ぐ）。3Cの普及とGNP世界2位を結び付けて覚える。"},
+{cat:"日本経済史",q:"岩戸景気（1958-61年）と関連する政策として正しいものはどれか？",opts:["三種の神器の普及","池田勇人の国民所得倍増計画","東京オリンピックの開催","アベノミクスの三本の矢"],ans:1,exp:"岩戸景気（1958-61年）＝池田勇人内閣の国民所得倍増計画。神武景気は三種の神器、オリンピック景気は東京五輪・新幹線。"},
+{cat:"日本経済史",q:"オリンピック景気（1962-64年）で日本が加盟した国際機関はどれか？",opts:["国際連合","IMF","OECD（経済協力開発機構）","WTO"],ans:2,exp:"オリンピック景気（1962-64年）の間に東京五輪（1964年）・東海道新幹線開通・OECD加盟を達成。OECD加盟は先進国の仲間入りを意味した。"},
+{cat:"日本経済史",q:"バブル崩壊のきっかけとなった日銀の政策はどれか？",opts:["公定歩合を2.5%に引き下げた","公定歩合を6%に引き上げた＋土地関連融資規制","為替介入でドル高を誘導した","消費税を導入した"],ans:1,exp:"バブル崩壊のきっかけ＝日銀が公定歩合を6%に引き上げ＋大蔵省が土地関連融資の総量規制→株価・地価が暴落→不良債権→平成不況（失われた10年）。"},
+{cat:"日本経済史",q:"1997年に日本で同時に起きた二つの経済的出来事はどれか？",opts:["バブル崩壊とリーマン・ショック","消費税3%→5%引き上げとアジア通貨危機","ニクソン・ショックとオイルショック","プラザ合意と円高不況"],ans:1,exp:"1997年の二大ショック＝①消費税3%→5%引き上げ②アジア通貨危機（タイ・バーツ暴落から波及）→銀行倒産が相次いだ。「1997年＝消費税5%＋アジア通貨危機」。"},
+{cat:"日本経済史",q:"サブプライムローン問題が発生した年はいつか？",opts:["2001年","2004年","2006年","2010年"],ans:2,exp:"サブプライムローン問題＝2006年にアメリカで発生（低所得者向け住宅ローンの焦げ付き）。2008年のリーマン・ショックにつながった。"},
+{cat:"日本経済史",q:"リーマン・ショックが発生した年はいつか？",opts:["2004年","2006年","2008年","2010年"],ans:2,exp:"リーマン・ショック＝2008年（米国の投資銀行リーマン・ブラザーズの破綻）。大量の資金が安全通貨の日本円に流入→円高・デフレ加速・国債増加→「混迷する世界経済」。"},
+{cat:"日本経済史",q:"小泉構造改革（2001年）の柱として正しいものはどれか？",opts:["大胆な金融緩和＋財政出動＋成長戦略","規制緩和・民営化・不良債権処理（聖域なき構造改革）","消費税増税＋社会保障拡充","所得倍増計画＋高度成長促進"],ans:1,exp:"小泉純一郎内閣（2001年）＝「聖域なき構造改革」：規制緩和・民営化（郵政民営化等）・不良債権処理。2002年頃から景気回復。アベノミクス（金融政策主導）とは異なる。"},
+{cat:"日本経済史",q:"金融ビッグバン（1996年提案・1998年実施）の三原則はどれか？",opts:["Relief・Recovery・Reform","Free・Fair・Global","金融・財政・成長","規制・管理・統制"],ans:1,exp:"金融ビッグバンの三原則＝Free（自由）・Fair（公正）・Global（国際化）。護送船団方式の廃止→金融市場の自由化・国際化を目指した改革。"},
+{cat:"日本経済史",q:"デフレ・スパイラルの正しい説明はどれか？",opts:["物価上昇→消費拡大→企業収益増加→さらに物価上昇の好循環","消費低迷→物価下落→企業収益悪化→賃金抑制→消費さらに低迷の悪循環","通貨高→輸出増加→景気過熱→バブルの好循環","金利上昇→投資減少→景気後退の一方的な流れ"],ans:1,exp:"デフレ・スパイラル＝消費低迷→物価下落→企業収益悪化→賃金抑制→消費さらに低迷の悪循環。平成不況（失われた10年）の象徴的現象。"},
+{cat:"労働・社会保障",q:"M字カーブとは何を示すグラフか？",opts:["男性の失業率が年齢とともにM字型に変動するグラフ","女性の労働参加率が育児期に下がりM字型の曲線を描くグラフ","GDPの成長率が景気循環でM字型になるグラフ","物価上昇率と失業率の関係を示すフィリップス曲線"],ans:1,exp:"M字カーブ＝女性の年齢別労働参加率グラフが育児期（20代後半〜30代）に下がりM字型を描く現象。日本に特徴的。近年はM字の谷が浅くなる傾向。"},
+{cat:"労働・社会保障",q:"フリーターとニートの違いとして正しいものはどれか？",opts:["フリーター＝無職で何もしない人、ニート＝非正規で働いている人","フリーター＝非正規雇用（アルバイト等）で働いている人、ニート＝就労・通学・職業訓練のいずれもしていない人","フリーターとニートは同じ意味","フリーター＝正社員、ニート＝パートタイマー"],ans:1,exp:"フリーター＝アルバイト・パート等の非正規雇用で働いている若者。ニート（NEET）＝Not in Education, Employment or Training＝就労・通学・職業訓練のいずれもしていない若者。"},
+{cat:"労働・社会保障",q:"ワークシェアリングの代表的なモデルとなった国はどこか？",opts:["アメリカ","ドイツ","オランダ","フランス"],ans:2,exp:"ワークシェアリング＝仕事を分かち合い雇用を維持する方式。オランダが代表的なモデル（オランダモデル）として有名。"},
+{cat:"労働・社会保障",q:"日本の非正規雇用の比率はおよそどれくらいか？",opts:["約15%","約25%","約35%","約50%"],ans:2,exp:"日本の非正規雇用比率は約35%（労働者の3人に1人が非正規）。パート・アルバイト・派遣・契約社員等が含まれる。"},
+{cat:"労働・社会保障",q:"同一労働同一賃金が実施された年はいつか？",opts:["2015年","2018年","2020年（大企業）・2021年（中小企業）","2023年"],ans:2,exp:"同一労働同一賃金＝2020年実施（大企業）・2021年（中小企業）。働き方改革関連法（2018年成立）に基づく。正規・非正規の不合理な待遇差を禁止。"},
+{cat:"労働・社会保障",q:"PL法（製造物責任法）が制定された年はいつか？",opts:["1985年","1990年","1994年","2000年"],ans:2,exp:"PL法（製造物責任法）＝1994年制定。無過失責任（製品の欠陥を証明すれば製造者の過失を証明しなくても賠償請求可）が特徴。消費者保護の重要な法律。"},
+{cat:"労働・社会保障",q:"消費者基本法（2004年）は何を改正したものか？",opts:["独占禁止法（1947年）を改正","消費者保護基本法（1968年）を改正（「保護」→「自立支援」へ転換）","PL法（1994年）を改正","食品安全基本法（2003年）を改正"],ans:1,exp:"消費者基本法（2004年）＝消費者保護基本法（1968年）を改正。理念が「保護」から「自立支援」へ転換。消費者の権利を明確に位置づけた。"},
+
 ]
 
 </script>
@@ -326,7 +393,7 @@ function updateBadge(){
 function buildCats(){
   allCats=["全て",...new Set(ALL.map(q=>q.cat))];
   document.getElementById("catNav").innerHTML=
-    `<button class="cat-btn" onclick="startMissedOnly()" id="missedBtn" style="border-color:#9e5a5a;color:#c87e7e">
+    `<button class="cat-btn" onclick="startMissedOnly()" id="missedBtn" style="border-color:#c44;color:#c44">
       <span id="missedBadge"></span>苦手問題のみ
     </button>` +
     allCats.map(c=>`<button class="cat-btn${c===selCat?" active":""}" onclick="setCat('${c}')">${c}</button>`).join("");
@@ -430,12 +497,12 @@ function showSummary(){
   const allPct = totalStats.total ? Math.round(totalStats.correct/totalStats.total*100) : 0;
   const mb=document.getElementById("missedBox");
   mb.innerHTML=
-    `<div style="font-size:11px;color:#555;letter-spacing:2px;margin-bottom:12px">累計正解率：${allPct}%（${totalStats.correct}/${totalStats.total}問）</div>` +
+    `<div style="font-size:11px;color:#888;letter-spacing:2px;margin-bottom:12px">累計正解率：${allPct}%（${totalStats.correct}/${totalStats.total}問）</div>` +
     (missed.length
       ? '<h3>間違えた問題（苦手リストに保存済み）</h3>'+missed.map(q=>`<div class="missed-item"><div class="missed-q">${q.q}</div><div class="missed-a">▸ ${q.opts[q.ans]}</div></div>`).join("")
-      : '<div style="color:#7ec8a0;text-align:center;padding:16px">全問正解！🎉</div>') +
+      : '<div style="color:#2d8a4e;text-align:center;padding:16px">全問正解！🎉</div>') +
     `<div style="margin-top:16px;text-align:center">
-      <button onclick="clearSaved()" style="padding:8px 16px;border:1px solid #444;background:transparent;color:#666;font-size:11px;cursor:pointer;font-family:inherit">苦手リストをリセット</button>
+      <button onclick="clearSaved()" style="padding:8px 16px;border:1px solid #444;background:transparent;color:#777;font-size:11px;cursor:pointer;font-family:inherit">苦手リストをリセット</button>
     </div>`;
   document.getElementById("summary").style.display="block";
 }
